@@ -1,7 +1,6 @@
 package com.elrik.tap.ui;
 
 import javax.swing.JFrame;
-// import javax.swing.JPanel;
 import javax.swing.JPanel;
 
 import com.elrik.tap.authorization.LoginScene;
@@ -9,7 +8,7 @@ import com.elrik.tap.authorization.LoginScene;
 public class AppWindow {
 	private static AppWindow INSTANCE;
 	private JFrame appFrame;
-	private boolean userAuthenticated = true;
+	private boolean userAuthenticated;
 
 	private void setUpAppFrame() {
 		this.appFrame.setSize(AppDimensions.WindowSize.getWidth(),
@@ -20,6 +19,7 @@ public class AppWindow {
 
 	private AppWindow() {
 		this.appFrame = new JFrame();
+		this.userAuthenticated = false;
 		this.setUpAppFrame();
 	}
 
@@ -44,6 +44,7 @@ public class AppWindow {
 			this.setCurrentPanel(new LoginScene());
 			return;
 		}
+
 		appFrame.setContentPane(panel);
 	}
 

@@ -72,9 +72,26 @@ public class StatsService {
 			var result = statement.executeQuery("SELECT SUM(cost * inStock) FROM product");
 			result.next();
 			var totalValue = result.getDouble(1);
+			statement.close();
+
 			return totalValue;
 		} catch (Exception e) {
 			return -1;
+		}
+	}
+
+	public AvgPaymentAndChange getAvgPaymentAndChange() {
+		try {
+			var statement = conn.createStatement();
+			var result = statement.executeQuery("SELECT AVG(total_paid), AVG(change_val) from purchase");
+			result.next();
+
+			var paymentAndChange = new AvgPaymentAndChange(result.getDouble(1), result.getDouble(2));
+			statement.close();
+
+			return paymentAndChange;
+		} catch (Exception e) {
+			return null;
 		}
 	}
 }
