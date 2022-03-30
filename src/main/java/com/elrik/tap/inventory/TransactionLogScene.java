@@ -28,7 +28,7 @@ public class TransactionLogScene extends AuthenticatedScene {
 	}
 
 	public TransactionLogScene() {
-		appWindow.updateTitle("Logs de transacao");
+		appWindow.updateTitle("Logs de transação");
 		this.transactionLogService = new TransactionLogService();
 		this.goBackButton = new JButton("Voltar");
 		this.transactionLogs = this.transactionLogService.getAllLogs();

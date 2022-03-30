@@ -34,11 +34,11 @@ public class StatsMainScene extends AuthenticatedScene {
 	}
 
 	public StatsMainScene() {
-		appWindow.updateTitle("Estatisticas e Logs");
+		appWindow.updateTitle("Estatísticas e Logs");
 		this.setLayout(null);
 
-		openTransactionLogsViewButton = new JButton("Ver Historico de transacoes");
-		openKMartStatsViewBtn = new JButton("Ver estatisticas de vendas");
+		openTransactionLogsViewButton = new JButton("Ver Histórico de transações");
+		openKMartStatsViewBtn = new JButton("Ver estatísticas de vendas");
 		openHomeSceneButton = new JButton("Voltar para a home");
 
 		this.add(openKMartStatsViewBtn);

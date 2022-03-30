@@ -33,11 +33,11 @@ public class SellProductScene extends AuthenticatedScene {
 	private void renderProductList() {
 		int numberOfProductRows = productCartMap.size();
 		productListContainer.setPreferredSize(new Dimension(250, numberOfProductRows * 50));
-		productListScrollPane.setSize(new Dimension(300, numberOfProductRows * 50 + 10));
+		productListScrollPane.setSize(new Dimension(300, numberOfProductRows * 60 + 10));
 
 		productListContainer.removeAll();
 		for (var productRow : productCartMap.values()) {
-			productRow.setSize(new Dimension(200, 100));
+			productRow.setSize(new Dimension(200, 120));
 			this.productListContainer.add(productRow);
 			this.productListContainer.add(Box.createRigidArea(new Dimension(0, 10)));
 		}
@@ -162,6 +162,7 @@ public class SellProductScene extends AuthenticatedScene {
 
 	public SellProductScene() {
 		super();
+		appWindow.updateTitle("Vender produtos");
 
 		this.inventory = Inventory.getInstance();
 		this.productListContainer = new JPanel();

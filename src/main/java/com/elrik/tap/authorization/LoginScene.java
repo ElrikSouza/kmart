@@ -6,6 +6,9 @@ import com.elrik.tap.home.HomeScene;
 import com.elrik.tap.ui.AppLabel;
 import com.elrik.tap.ui.Scene;
 
+/**
+ * Cena de login.
+ */
 public class LoginScene extends Scene {
 	private JPasswordField passwordField;
 	private JTextField usernameField;
@@ -34,10 +37,10 @@ public class LoginScene extends Scene {
 
 	private void organizeLayout() {
 		this.usernameLabel.setBounds(100, 150, 600, 30);
-		this.usernameField.setBounds(100, 190, 600, 30);
+		this.usernameField.setBounds(100, 190, 600, 40);
 
 		this.passwordLabel.setBounds(100, 230, 600, 30);
-		this.passwordField.setBounds(100, 270, 600, 30);
+		this.passwordField.setBounds(100, 270, 600, 40);
 
 		this.submitButton.setBounds(100, 350, 600, 30);
 	}
@@ -60,6 +63,8 @@ public class LoginScene extends Scene {
 	}
 
 	public LoginScene() {
+		appWindow.updateTitle("Login");
+
 		this.usernameField = new JTextField();
 		this.passwordField = new JPasswordField();
 		this.passwordLabel = new AppLabel("Senha", 20f);

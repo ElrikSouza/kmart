@@ -1,5 +1,7 @@
 package com.elrik.tap.stats;
 
+import javax.swing.JButton;
+
 import com.elrik.tap.ui.AppLabel;
 import com.elrik.tap.ui.AuthenticatedScene;
 
@@ -19,6 +21,8 @@ public class KMartStatsScene extends AuthenticatedScene {
 
 	private AppLabel avgPurchaseCostLabel;
 	private AppLabel avgChangeLabel;
+
+	private JButton backButton;
 
 	private StatsService statsService;
 
@@ -40,6 +44,8 @@ public class KMartStatsScene extends AuthenticatedScene {
 
 		this.add(avgChangeLabel);
 		this.add(avgPurchaseCostLabel);
+
+		this.add(backButton);
 	}
 
 	private void setupSceneLayout() {
@@ -62,6 +68,8 @@ public class KMartStatsScene extends AuthenticatedScene {
 
 		this.avgPurchaseCostLabel.setBounds(150, 400, 200, 60);
 		this.avgChangeLabel.setBounds(450, 400, 280, 60);
+
+		this.backButton.setBounds(100, 500, 600, 30);
 	}
 
 	public KMartStatsScene() {
@@ -72,6 +80,9 @@ public class KMartStatsScene extends AuthenticatedScene {
 		var paymentMethods = this.statsService.getPaymentMethodStats();
 		var profit = this.statsService.getSoldAndBoughtStatsBreakdown();
 		var avgPaymentAndChange = this.statsService.getAvgPaymentAndChange();
+
+		this.backButton = new JButton("Voltar para o menu de estatísticas");
+		this.backButton.addActionListener(e -> appWindow.setCurrentPanel(new StatsMainScene()));
 
 		this.totalProductValueLabel = new AppLabel("Valor Total Em Produtos", 20f);
 		this.totalProductValueLabelValue = new AppLabel(

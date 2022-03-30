@@ -1,5 +1,6 @@
 package com.elrik.tap.ui;
 
+/** Enum contendo as dimensões utilizadas pela tela da aplicação. */
 public enum AppDimensions {
 	WindowSize(750, 800);
 

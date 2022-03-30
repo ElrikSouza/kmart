@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 import com.elrik.tap.db.DbConn;
 
+/**
+ * Repositório de produtos.
+ */
 public class ProductRepo {
 	private Connection conn = DbConn.getConnection();
 
@@ -26,16 +29,29 @@ public class ProductRepo {
 		}
 	}
 
+	/**
+	 * Remover produto via código de barra
+	 * 
+	 * @param barcode código de barra do produto a ser removido.
+	 */
 	public void deleteProduct(String barcode) {
 		try {
 			var statement = this.conn.prepareStatement("DELETE FROM product WHERE barcode = ?");
 			statement.setString(1, barcode);
 			statement.execute();
+			statement.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
 	}
 
+	/**
+	 * Apenas cria um produto no banco, sem gerar logs. Esse método só deve ser
+	 * utilizado por Inventory.
+	 * 
+	 * 
+	 * @param product Produto a ser criado.
+	 */
 	public void createProduct(Product product) {
 		try {
 			var statement = this.conn.prepareStatement(
@@ -50,11 +66,19 @@ public class ProductRepo {
 			statement.setString(7, product.unit());
 
 			statement.execute();
+			statement.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
 	}
 
+	/**
+	 * Método para editar um produto.
+	 * 
+	 * @param product produto a ser editado (código de barra é usado para achar o
+	 *                produto, ele não pode ser alterado)
+	 * @return
+	 */
 	public boolean editProduct(Product product) {
 		try {
 			var statement = conn.prepareStatement(
@@ -68,6 +92,7 @@ public class ProductRepo {
 			statement.setString(7, product.barcode());
 
 			statement.executeUpdate();
+			statement.close();
 		} catch (Exception e) {
 			return false;
 		}
@@ -75,18 +100,34 @@ public class ProductRepo {
 		return true;
 	}
 
+	/**
+	 * Acha um produto via código de barras
+	 * 
+	 * @param barcode código de barras a ser encontrado
+	 * @return produto ou null
+	 */
 	public Product getProductByBarcode(String barcode) {
 		try {
 			var statement = conn.prepareStatement("SELECT * FROM product WHERE barcode = ?");
 			statement.setString(1, barcode);
 			var result = statement.executeQuery();
 			result.next();
-			return resultRowToProduct(result);
+			var product = resultRowToProduct(result);
+
+			statement.close();
+			result.close();
+
+			return product;
 		} catch (SQLException e) {
 			return null;
 		}
 	}
 
+	/**
+	 * Acha todos os produtos em estoque
+	 * 
+	 * @return lista de produtos ou null
+	 */
 	public ArrayList<Product> getProductsInStock() {
 		try {
 			var statement = conn.createStatement();
@@ -96,6 +137,9 @@ public class ProductRepo {
 			while (results.next()) {
 				productList.add(resultRowToProduct(results));
 			}
+
+			results.close();
+			statement.close();
 
 			return productList;
 		} catch (Exception e) {

@@ -131,12 +131,12 @@ public abstract class ProductFormScene extends AuthenticatedScene {
 		this.descriptionField = new JTextArea();
 
 		this.nameLabel = new AppLabel("Nome");
-		this.barcodeLabel = new AppLabel("Codigo de barras");
-		this.sellPriceLabel = new AppLabel("Preco de venda");
+		this.barcodeLabel = new AppLabel("Código de barras");
+		this.sellPriceLabel = new AppLabel("Preço de venda");
 		this.costLabel = new AppLabel("Custo de compra");
 		this.inStockLabel = new AppLabel("Em estoque");
 		this.unitLabel = new AppLabel("Unidade");
-		this.descriptionLabel = new AppLabel("Descricao");
+		this.descriptionLabel = new AppLabel("Descrição");
 
 		this.submitButton = new JButton(submitBtnMessage);
 		this.submitButton.addActionListener(e -> this.submitForm());

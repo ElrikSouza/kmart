@@ -186,15 +186,16 @@ public class InventoryMainScene extends AuthenticatedScene {
 	}
 
 	public InventoryMainScene() {
+		appWindow.updateTitle("Gerenciar estoque");
 		this.inventory = Inventory.getInstance();
 		this.offset = 0;
 
-		this.nextProductPageButton = new JButton("Proximo");
+		this.nextProductPageButton = new JButton("Próximo");
 		this.previousProductPageButton = new JButton("Anterior");
 		this.searchButton = new JButton("Buscar!");
 		this.searchQueryField = new JTextField();
 		this.clearSearchButton = new JButton("X");
-		this.backToStartButton = new JButton("Inicio da Lista");
+		this.backToStartButton = new JButton("Início da Lista");
 		this.addNewProductButton = new JButton("Comprar Produto");
 		this.openHomeSceneButton = new JButton("Voltar para home");
 

@@ -8,6 +8,10 @@ import com.elrik.tap.ui.AppLabel;
 import java.awt.*;
 import java.util.function.Consumer;
 
+/**
+ * Classe que define o componente utilizado para listar produtos no carrinho de
+ * compras na tela de vender produtos a um cliente.
+ */
 public class ProductCartRow extends JPanel {
 	private Product product;
 	private JButton deleteProductButton;
@@ -16,6 +20,12 @@ public class ProductCartRow extends JPanel {
 
 	private Consumer<String> handleDeletionCallback;
 
+	/**
+	 * 
+	 * @param product                dados do produto.
+	 * @param quantity               quantidade no carrinho de compras.
+	 * @param handleDeletionCallback callback para remover esse componente da lista.
+	 */
 	public ProductCartRow(Product product, int quantity, Consumer<String> handleDeletionCallback) {
 		this.product = product;
 		this.quantity = quantity;
@@ -35,10 +45,19 @@ public class ProductCartRow extends JPanel {
 		this.add(productNameLabel);
 	}
 
+	/**
+	 * Retorna a referencia do produto da linha atual.
+	 * 
+	 * @return produto
+	 */
 	public Product getProduct() {
 		return product;
 	}
 
+	/**
+	 * 
+	 * @return a quantidade a ser vendida.
+	 */
 	public int getQuantity() {
 		return this.quantity;
 	}
@@ -47,6 +66,11 @@ public class ProductCartRow extends JPanel {
 		this.productNameLabel.setText(String.format("(x%d %s) %s", quantity, product.unit(), product.name()));
 	}
 
+	/**
+	 * Método utilziado para incrementar a quantidade de produtos a serem vendidos
+	 * 
+	 * @param numberOfNewItems quantidade do incremento.
+	 */
 	public void buyMoreItems(int numberOfNewItems) {
 		this.quantity += numberOfNewItems;
 		this.updateProductNameLabel();

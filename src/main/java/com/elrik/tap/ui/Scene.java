@@ -2,6 +2,7 @@ package com.elrik.tap.ui;
 
 import javax.swing.JPanel;
 
+/** Classe que define as cenas a serem utilizadas pela aplicação */
 public class Scene extends JPanel {
 	protected AppWindow appWindow;
 

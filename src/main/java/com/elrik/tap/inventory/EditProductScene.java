@@ -2,6 +2,7 @@ package com.elrik.tap.inventory;
 
 import javax.swing.JOptionPane;
 
+/** Cena para editar os produtos do estoque. */
 public class EditProductScene extends ProductFormScene {
 	private Product product;
 
@@ -15,9 +16,13 @@ public class EditProductScene extends ProductFormScene {
 		this.inStockField.setText(product.inStock() + "");
 	}
 
+	/**
+	 * @param productBarcode código de barra do produto a ser editado
+	 */
 	public EditProductScene(String productBarcode) {
 		super("Editar produto");
-		this.product = this.productRepo.getProductByBarcode(productBarcode);
+		appWindow.updateTitle("Editar produto");
+		this.product = this.inventory.getProductByBarcode(productBarcode);
 		setFormDefaultValues();
 	}
 
@@ -25,7 +30,7 @@ public class EditProductScene extends ProductFormScene {
 	protected void submitForm() {
 		super.submitForm();
 
-		if (!this.productRepo.editProduct(getProductFromForm())) {
+		if (!this.inventory.editProduct(getProductFromForm())) {
 			JOptionPane.showMessageDialog(null, "A operacao falhou");
 		}
 

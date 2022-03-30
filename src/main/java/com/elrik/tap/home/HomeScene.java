@@ -7,6 +7,9 @@ import com.elrik.tap.inventory.SellProductScene;
 import com.elrik.tap.stats.StatsMainScene;
 import com.elrik.tap.ui.AuthenticatedScene;
 
+/**
+ * Cena de menu da aplicação.
+ */
 public class HomeScene extends AuthenticatedScene {
 	private JButton openSellProductsViewBtn;
 	private JButton openInventoryViewButton;
@@ -40,7 +43,7 @@ public class HomeScene extends AuthenticatedScene {
 
 		openInventoryViewButton = new JButton("Gerenciar Estoque");
 		openSellProductsViewBtn = new JButton("Vender produtos");
-		openStatsViewButton = new JButton("Ver estatisticas e logs");
+		openStatsViewButton = new JButton("Ver estatísticas e logs");
 
 		this.add(openSellProductsViewBtn);
 		this.add(openInventoryViewButton);

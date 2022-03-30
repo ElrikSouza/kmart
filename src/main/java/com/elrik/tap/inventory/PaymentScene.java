@@ -113,6 +113,7 @@ public class PaymentScene extends AuthenticatedScene {
 	}
 
 	public PaymentScene(ArrayList<PurchaseEntry> purchaseEntries) {
+		appWindow.updateTitle("Realizar pagamento");
 		this.purchaseEntries = purchaseEntries;
 		this.totalPrice = getTotalPrice();
 		this.selectPaymentMethodLabel = new AppLabel("Selecione o metodo de pagamento", 20f);

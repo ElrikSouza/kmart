@@ -1,5 +1,8 @@
 package com.elrik.tap.inventory;
 
+/**
+ * Cena para adicionar comprar produtos para o estoque
+ */
 public class AddItemToInventoryScene extends ProductFormScene {
 
 	@Override
@@ -10,5 +13,6 @@ public class AddItemToInventoryScene extends ProductFormScene {
 
 	public AddItemToInventoryScene() {
 		super("Comprar produto e voltar para o indice de produtos");
+		appWindow.updateTitle("Adicionar produto ao estoque");
 	}
 }
