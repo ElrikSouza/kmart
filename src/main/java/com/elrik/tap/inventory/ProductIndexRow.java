@@ -7,7 +7,11 @@ import com.elrik.tap.ui.AppLabel;
 import java.awt.Color;
 import java.awt.event.*;
 
-public class ProductRow extends JPanel {
+/**
+ * Classe que representa uma linha no index de produtos. Ela inclui acoes como
+ * remover, editar, e gerar etiquetas.
+ */
+public class ProductIndexRow extends JPanel {
 	private JButton deleteProductBtn;
 	private JButton updateProductBtn;
 	private JButton generateTagBtn;
@@ -48,7 +52,7 @@ public class ProductRow extends JPanel {
 		this.add(generateTagBtn);
 	}
 
-	public ProductRow(Product product, ActionListener handleDeleteProduct, ActionListener handleUpdateProduct,
+	public ProductIndexRow(Product product, ActionListener handleDeleteProduct, ActionListener handleUpdateProduct,
 			ActionListener handleGenerateTag) {
 
 		this.deleteProductBtn = new JButton("Remover");

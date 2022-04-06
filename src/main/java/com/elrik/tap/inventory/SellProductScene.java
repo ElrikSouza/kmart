@@ -10,6 +10,9 @@ import com.elrik.tap.home.HomeScene;
 import com.elrik.tap.ui.AppLabel;
 import com.elrik.tap.ui.AuthenticatedScene;
 
+/**
+ * Cena de venda de produtos para um cliente final.
+ */
 public class SellProductScene extends AuthenticatedScene {
 	private Inventory inventory;
 	private JScrollPane productListScrollPane;

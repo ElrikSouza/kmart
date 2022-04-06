@@ -7,6 +7,10 @@ import javax.swing.JTextField;
 import com.elrik.tap.ui.AppLabel;
 import com.elrik.tap.ui.AuthenticatedScene;
 
+/**
+ * Classe abstrata que contém código compartilhado entre o a tela de comprar e
+ * vender produtos.
+ */
 public abstract class ProductFormScene extends AuthenticatedScene {
 	protected JTextField nameField;
 	protected JTextField barcodeField;

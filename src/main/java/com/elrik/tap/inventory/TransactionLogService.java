@@ -7,9 +7,18 @@ import java.util.ArrayList;
 
 import com.elrik.tap.db.DbConn;
 
+/**
+ * Classe que gerencia os logs de compra e venda.
+ */
 public class TransactionLogService {
 	private Connection conn = DbConn.getConnection();
 
+	/**
+	 * Salva um log no banco de dados
+	 * 
+	 * @param log log a ser salvo
+	 * @return
+	 */
 	public boolean saveTransactionLog(TransactionLog log) {
 		try {
 			var statement = conn.prepareStatement(
@@ -17,6 +26,8 @@ public class TransactionLogService {
 			statement.setDouble(1, log.totalAmount());
 			statement.setString(2, log.transactionType());
 			statement.execute();
+
+			statement.close();
 
 			return true;
 		} catch (Exception e) {
@@ -34,6 +45,11 @@ public class TransactionLogService {
 		return log;
 	}
 
+	/**
+	 * Pega todos os logs salvos
+	 * 
+	 * @return arraylist de logs
+	 */
 	public ArrayList<TransactionLog> getAllLogs() {
 		try {
 			var statement = conn.createStatement();
@@ -43,6 +59,9 @@ public class TransactionLogService {
 			while (results.next()) {
 				logs.add(parseLogFromResultSet(results));
 			}
+
+			results.close();
+			statement.close();
 
 			return logs;
 		} catch (Exception e) {

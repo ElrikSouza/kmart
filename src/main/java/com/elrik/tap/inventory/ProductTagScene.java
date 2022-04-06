@@ -5,6 +5,9 @@ import javax.swing.JButton;
 import com.elrik.tap.ui.AppLabel;
 import com.elrik.tap.ui.AuthenticatedScene;
 
+/**
+ * Cena que gera uma etiqueta para um produto.
+ */
 public class ProductTagScene extends AuthenticatedScene {
 	private AppLabel barcodeLabel;
 	private AppLabel nameLabel;

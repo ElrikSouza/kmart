@@ -9,6 +9,9 @@ import com.elrik.tap.stats.StatsMainScene;
 import com.elrik.tap.ui.AppLabel;
 import com.elrik.tap.ui.AuthenticatedScene;
 
+/**
+ * Cena que exibe logs tanto de compra como de venda para o operador.
+ */
 public class TransactionLogScene extends AuthenticatedScene {
 	private JButton goBackButton;
 	private ArrayList<TransactionLog> transactionLogs;

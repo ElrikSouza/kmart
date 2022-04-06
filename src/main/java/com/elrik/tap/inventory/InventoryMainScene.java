@@ -11,6 +11,12 @@ import java.awt.*;
 import com.elrik.tap.home.HomeScene;
 import com.elrik.tap.ui.AuthenticatedScene;
 
+/**
+ * Essa cena é um menu utilizado para gerenciar o estoque.
+ * 
+ * Ela inclui uma lista de produtos, e links para acoes como comprar mais
+ * produtos para o estoque.
+ */
 public class InventoryMainScene extends AuthenticatedScene {
 	private ArrayList<Product> allProducts;
 	private ArrayList<Product> visibleProducts;
@@ -39,7 +45,7 @@ public class InventoryMainScene extends AuthenticatedScene {
 
 		for (int i = offset; i < visibleProductsLength && i < offset + 3; i++) {
 			var product = visibleProducts.get(i);
-			var productRow = new ProductRow(product, e -> {
+			var productRow = new ProductIndexRow(product, e -> {
 				handleProductDelete(product.barcode());
 			}, e -> {
 				handleProductEdit(product.barcode());

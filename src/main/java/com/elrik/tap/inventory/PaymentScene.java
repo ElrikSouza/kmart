@@ -11,6 +11,9 @@ import com.elrik.tap.home.HomeScene;
 import com.elrik.tap.ui.AppLabel;
 import com.elrik.tap.ui.AuthenticatedScene;
 
+/**
+ * Cena de pagamento que pode ser chamada apos a tela de venda de produtos.
+ */
 public class PaymentScene extends AuthenticatedScene {
 	private AppLabel selectPaymentMethodLabel;
 	private AppLabel totalPriceLabel;
